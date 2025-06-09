@@ -1,0 +1,684 @@
+:root {
+   --moon-purple: #b596e7;      
+  --moon-dark: #6a4e9e;       
+  --moon-light: #f7f1fd;        
+  --moon-pink: #f9d4e3;         
+  --moon-yellow: #fef3c7;      
+  --moon-blue: #d2ecff;         
+  --moon-shadow: rgba(0, 0, 0, 0.05);
+  --phase-a-color: #ffd8ff;    
+  --phase-b-color: #e9c2ff;    
+  --phase-c-color: #dba5fa;    
+}
+
+.App {
+   padding: 30px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  color: #fff;
+  background-image: url('/public/images/background.png'); 
+  background-size: cover;
+  background-position: top center;
+  background-attachment: fixed;
+}
+
+/* Header */
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  color: var(--moon-light);
+  text-shadow: 1px 1px 2px var(--moon-dark);
+   max-width: 900px;
+  margin: 0 auto 30px;
+}
+
+/* Section Boxes */
+.section-box {
+  width: 100%;
+  max-width: 1000px;
+  background:rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2); 
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  transition: box-shadow 0.3s ease;
+}
+
+.section-box:hover {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Tables */
+table {
+  width: 100%;
+  table-layout: auto;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  font-size: 0.95rem;
+  color: var(--moon-dark);
+}
+
+th {
+  background: rgba(189, 167, 224, 0.25);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  padding: 12px;
+  backdrop-filter: blur(6px);
+  user-select: none;
+  position: relative;
+}
+
+td input,
+td select {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+th > div {
+  position: relative;
+}
+
+th > div > div {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  cursor: col-resize;
+  z-index: 2;
+}
+
+
+/* Buttons */
+button {
+  background-color: var(--moon-purple);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+button:hover {
+  background-color: var(--moon-purple);
+}
+
+/* BTN 6 - Add/Save */
+/* 6 */
+.btn-6 {
+  background: var(--moon-yellow);
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  color: var(--moon-dark);
+  font-weight: bold;
+  font-size: 14px;
+  min-width: 120px;
+  text-align: center;
+   box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.btn-6 span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 42px;
+  z-index: 1;
+}
+
+.btn-6:before,
+.btn-6:after {
+  content: "";
+  position: absolute;
+  height: 0%;
+  width: 1px;
+  box-shadow:
+    -1px -1px 20px rgba(255, 255, 255, 1),
+    -4px -4px 5px rgba(255, 255, 255, 1),
+    7px 7px 20px rgba(0, 0, 0, 0.4),
+    4px 4px 5px rgba(0, 0, 0, 0.3);
+}
+
+.btn-6:before {
+  right: 0;
+  top: 0;
+  transition: all 500ms ease;
+}
+
+.btn-6:after {
+  left: 0;
+  bottom: 0;
+  transition: all 500ms ease;
+}
+
+.btn-6:hover {
+  background: transparent;
+  color: var(--moon-light);
+  box-shadow: none;
+}
+
+.btn-6:hover:before {
+  height: 100%;
+}
+
+.btn-6:hover:after {
+  height: 100%;
+}
+
+.btn-6 span:before,
+.btn-6 span:after {
+  content: "";
+  position: absolute;
+  height: 0.5px;
+  width: 0%;
+  box-shadow:
+    -1px -1px 20px rgba(255, 255, 255, 1),
+    -4px -4px 5px rgba(255, 255, 255, 1),
+    7px 7px 20px rgba(0, 0, 0, 0.4),
+    4px 4px 5px rgba(0, 0, 0, 0.3);
+  transition: all 500ms ease;
+}
+
+.btn-6 span:before {
+  left: 0;
+  top: 0;
+}
+
+.btn-6 span:after {
+  right: 0;
+  bottom: 0;
+}
+
+.btn-6 span:hover:before,
+.btn-6 span:hover:after {
+  width: 100%;
+}
+
+/* delete and remove buttons */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+
+.danger-button {
+  background-color: var(--moon-purple);
+  color: var(--moon-light);
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.danger-button:hover {
+  animation: shake 0.4s ease-in-out;
+  background-color: darkred;
+  color: var(--moon-light);
+}
+
+
+
+
+
+/* Batch Input Section */
+.batch-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Totals and Alerts */
+.total-warning {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.total-percent {
+  font-weight: bold;
+  font-size: 1rem;
+  color: var(--moon-dark);
+  margin-top: 10px;
+}
+
+/* Icons + Emojis */
+.icon-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: bold;
+}
+
+/* Responsive Scroll for Tables */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  
+}
+
+tbody {
+  min-height: 50px;
+}
+
+.dragging-row {
+  background-color: #fdfdff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transform: scale(1.01);
+  transition: all 0.2s ease;
+  z-index: 999;
+  position: relative;
+}
+
+/* Add line between table rows */
+tbody tr {
+  border-bottom: 1px solid var(--moon-shadow);
+}
+
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+th:not(:last-child),
+td:not(:last-child) {
+  border-right: 1px solid var(--moon-shadow);
+}
+
+/* Remove border from special rows like Add Ingredient & warning */
+.no-border-row {
+  border-bottom: none !important;
+}
+
+/* Remove vertical lines for special rows */
+.no-border-row td {
+  border-right: none !important;
+}
+
+.total-warning-inline {
+  color: red;
+  font-weight: bold;
+  padding-left: 12px;
+  white-space: nowrap;
+}
+
+.percent-cell {
+  min-width: 100px !important;
+  max-width: 120px;;
+  padding-right: 10px;
+}
+
+/* Adjust % column input */
+.percent-cell input {
+  width: 80px !important;;
+  text-align: center;
+}
+
+.phase-cell {
+  width: 140px;
+}
+
+
+.ingredient-input {
+  min-width: 280px;
+  padding: 6px;
+  max-width: 300px;
+  font-size: 12px;
+}
+
+
+.phase-cell select {
+  min-width: 100px;
+}
+
+.batch-header {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.batch-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.batch-left,
+.batch-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.batch-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.batch-input label {
+  font-weight: bold;
+  color: var(--moon-light);
+}
+
+input[type="number"],
+.formula-name-input,
+select {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: var(--moon-dark);
+  font-weight: 500;
+}
+
+.water-tracking-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.water-tracking-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.water-tracking-column label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  color: var(--moon-dark);
+}
+
+.water-tracking-column input {
+  margin-top: 4px;
+  margin-left: 5px;;
+  width: 100%;
+  max-width: 160px;
+}
+
+
+
+
+.phase-a {
+  background-color: var(--phase-a-color);
+}
+
+.phase-b {
+  background-color: var(--phase-b-color);
+}
+
+.phase-c {
+  background-color: var(--phase-c-color);
+}
+
+.label-dark {
+  color: var(--moon-dark);
+}
+
+.phase-totals-table .total-row td {
+  color: var(--moon-light) !important;
+  font-weight: bold;
+  background-color: var(--moon-purple);
+}
+
+.phase-totals-table th {
+  background-color: var(--moon-purple) !important;
+  color: var(--moon-light) !important;
+}
+
+/* Default styles (desktop) */
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.section-box {
+  max-width: none;
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 30px;
+  background-color: var(--card-bg);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+/* Input container spacing */
+.batch-header,
+.ingredient-controls,
+.phase-totals,
+.water-tracker {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.phase-totals-section,
+.water-tracking-section {
+  flex: 1;
+  min-width: 48%;
+}
+
+[data-cy="fragrance-split-count"] {
+  width: 120px;
+}
+
+.fragrance-scent-pair {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.fragrance-count-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+
+.scent-name-input {
+  width: 120px;
+  border: 1px solid var(--moon-shadow);
+}
+
+.scent-percent-input {
+  width: 60px;
+  text-align: center;
+}
+
+.fragrance-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  margin-top: 8px;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  color: var(--moon-dark);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+td[data-cy="ingredient-oz"],
+td[data-cy="ingredient-grams"] {
+  min-width: 180px; /* Adjust as needed */
+  vertical-align: top;
+}
+
+/* Scrollbar */
+.table-wrapper::-webkit-scrollbar {
+  height: 12px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: var(--moon-purple);
+  border-radius: 10px;
+  border: 2px solid var(--moon-light);
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--moon-dark);
+}
+
+.side-by-side-sections {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
+  gap: 20px;
+}
+
+.side-by-side-sections .section-box {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Tablet view */
+@media (max-width: 1024px) {
+  .section-box {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .batch-header,
+  .ingredient-controls,
+  .phase-totals,
+  .water-tracker {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .ingredient-controls,
+  .water-tracker {
+    align-items: flex-start;
+  }
+
+  .phase-totals table {
+    font-size: 14px;
+  }
+}
+
+/* Mobile view */
+@media (max-width: 600px) {
+  h1, h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .section-box {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .batch-header,
+  .ingredient-controls,
+  .phase-totals,
+  .water-tracker {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .form-row {
+    width: 100%;
+  }
+
+  .button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .water-tracker .add-back {
+    text-align: right;
+    width: 100%;
+  }
+  
+}
+/* Responsive design for side-by-side sections */
+@media (max-width: 768px) {
+  .side-by-side-sections {
+    flex-direction: column;
+  }
+
+  .phase-totals-section,
+  .water-tracking-section {
+    width: 100%;
+  }
+
+  .water-tracking-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
